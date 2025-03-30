@@ -1,0 +1,68 @@
+#ai-chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  resize: both;
+}
+
+#chat-header {
+  background: #333;
+  color: white;
+  padding: 10px;
+  cursor: move;
+  user-select: none;
+  font-weight: bold;
+}
+
+#chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+#chat-controls {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  background: #fff;
+}
+
+#chat-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+#mic-button {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 0 10px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+#mic-button.listening {
+  color: red;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

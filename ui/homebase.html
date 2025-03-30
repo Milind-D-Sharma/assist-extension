@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Replayz Homebase</title>
+  <link rel="stylesheet" href="homebase.css" />
+</head>
+<body>
+  <div id="home-container">
+    <header>
+      <h1>Replayz Dashboard</h1>
+      <div id="user-info"></div>
+    </header>
+    <main>
+      <section id="history">
+        <h2>Interaction History</h2>
+        <ul id="history-list"></ul>
+      </section>
+      <section id="settings">
+        <h2>Settings</h2>
+        <label for="model-select">AI Model:</label>
+        <select id="model-select">
+          <option value="gpt-4">GPT-4</option>
+          <option value="gpt-3.5-turbo">GPT-3.5</option>
+          <option value="claude-instant">Claude Instant</option>
+        </select>
+        <label><input type="checkbox" id="voice-toggle" /> Enable voice readout</label>
+        <label><input type="checkbox" id="theme-toggle" /> Dark mode</label>
+      </section>
+    </main>
+  </div>
+  <script src="homebase.js"></script>
+</body>
+</html>

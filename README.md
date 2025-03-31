@@ -1,41 +1,131 @@
-#AI Assistant (Chrome Extension)
+# AI Assistant Chrome Extension
 
-Replayz is a powerful browser-based AI assistant that overlays any webpage and can:
-- Read full page content (even off-screen)
-- Interact with visible and hidden elements
-- Fill forms, click buttons, and simulate typing
-- Post YouTube comments, respond to Gmail, Docs, and Canvas LMS
-- Switch between OpenAI GPT and Anthropic Claude
-- Use natural language and voice commands
-- Sync history and preferences with your account (coming in Supabase backend)
+An AI-powered Chrome extension that helps you with web automation and tasks. The extension provides a chat interface where you can interact with an AI assistant to automate web tasks, fill forms, and more.
 
-## Tech Stack
-- **Frontend**: HTML, CSS, JavaScript (modular ES6)
-- **Extension Runtime**: Chrome Manifest V3
-- **Voice Input**: Web Speech API (coming next)
-- **AI Providers**: OpenAI (GPT-4), Anthropic (Claude)
-- **Config & Keys**: Local `config/settings.json`
-- **Backend (coming)**: Supabase (PostgreSQL, Auth, Realtime)
+## Features
 
-## Setup
-1. Clone the repo or download files into a folder.
-2. Fill in `config/settings.json` with your OpenAI and Claude API keys.
-3. Open Chrome > `chrome://extensions` > Enable Developer Mode > Load Unpacked > select the folder.
-4. Visit any webpage and interact with the floating AI assistant.
+- 🤖 AI-powered chat interface
+- 🔐 Google Sign-In authentication
+- 💬 Real-time chat with message history
+- 🎨 Modern and responsive UI
+- 🌙 Dark mode support
+- ♿ Accessibility features
+- 🔄 Message regeneration
+- 📋 Copy message functionality
+- 🖼️ Screenshot capture
+- 🤖 Web automation capabilities
 
-## Supported Commands
-- Fill: [[FILL:email:user@example.com]]
-- Click: [[CLICK:Submit]]
-- Scroll: [[SCROLL:bottom]]
-- Gmail: [[GMAIL:Hey, thanks!]]
-- YouTube Comment: [[YOUTUBE_COMMENT:Great video!]]
-- Google Docs: [[GOOGLEDOCS:Meeting notes]]
-- Canvas LMS: [[CANVAS_SELECT:Question 2:C]]
-- Custom JS: [[JSCODE:document.querySelector('input').value='hi']]
+## Installation
 
-## Coming Soon
-- Supabase-authenticated Homebase dashboard
-- Voice input toggle in overlay
-- Local/Cloud macro library + undo
-- Desktop assistant via Electron
-- History syncing across Chrome + Desktop
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/ai-assistant-extension.git
+cd ai-assistant-extension
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory with your Firebase configuration:
+```env
+FIREBASE_API_KEY=your_api_key
+FIREBASE_AUTH_DOMAIN=your_auth_domain
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_STORAGE_BUCKET=your_storage_bucket
+FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+FIREBASE_APP_ID=your_app_id
+FIREBASE_CLIENT_ID=your_client_id
+```
+
+4. Build the extension:
+```bash
+npm run build
+```
+
+5. Load the extension in Chrome:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked" and select the `dist` directory
+
+## Development
+
+- Start development server:
+```bash
+npm run dev
+```
+
+- Run tests:
+```bash
+npm test
+npm run test:watch  # Run tests in watch mode
+```
+
+- Lint code:
+```bash
+npm run lint
+```
+
+- Format code:
+```bash
+npm run format
+```
+
+## Project Structure
+
+```
+ai-assistant-extension/
+├── background.js          # Background script
+├── content.js            # Content script
+├── popup.js             # Popup script
+├── popup.html           # Popup HTML
+├── popup.css            # Popup styles
+├── content.css          # Content styles
+├── manifest.json        # Extension manifest
+├── utils/
+│   ├── auth.js         # Authentication service
+│   └── chat.js         # Chat service
+├── icons/              # Extension icons
+└── tests/              # Test files
+```
+
+## Features in Detail
+
+### Authentication
+- Google Sign-In integration
+- Secure user session management
+- Persistent authentication state
+
+### Chat Interface
+- Real-time message updates
+- Message history
+- Message regeneration
+- Copy message functionality
+- Responsive design
+- Dark mode support
+
+### Web Automation
+- Form filling
+- Button clicking
+- Screenshot capture
+- Page context analysis
+- Macro recording and playback
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Firebase for authentication and database
+- Chrome Extension APIs
+- Modern web technologies and frameworks

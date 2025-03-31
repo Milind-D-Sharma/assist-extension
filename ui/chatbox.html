@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Assistant Chat</title>
+    <link rel="stylesheet" href="chatbox.css">
+</head>
+<body>
+    <div id="chat-container" class="chat-container">
+        <div class="chat-header">
+            <div class="chat-title">AI Assistant</div>
+            <div class="chat-controls">
+                <button id="minimize-btn" class="control-btn">_</button>
+                <button id="close-btn" class="control-btn">×</button>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <!-- Messages will be inserted here -->
+        </div>
+
+        <div class="chat-input-container">
+            <div class="input-controls">
+                <button id="voice-input-btn" class="control-btn" title="Voice Input">
+                    <span class="icon">🎤</span>
+                </button>
+                <button id="voice-output-btn" class="control-btn" title="Voice Output">
+                    <span class="icon">🔊</span>
+                </button>
+            </div>
+            <textarea id="chat-input" placeholder="Type your message..." rows="1"></textarea>
+            <button id="send-btn" class="send-btn">Send</button>
+        </div>
+    </div>
+    <script src="chatbox.js" type="module"></script>
+</body>
+</html> 

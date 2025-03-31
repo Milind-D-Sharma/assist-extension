@@ -1,56 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
+import { signInWithGoogle, getUserProfile, signOutUser, storeHistory, fetchUserHistory } from './src/firebase';
 
-const SUPABASE_URL = 'https://veajggjbtziellloxttt.supabase.co';
-const SUPABASE_KEY = 'your-public-anon-key';
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-export async function signInWithGoogle() {
-  const { error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
-  if (error) console.error('Login failed:', error);
-}
-
-export async function getUserProfile() {
-  const { data, error } = await supabase.auth.getUser();
-  if (error) {
-    console.error('User fetch error:', error);
-    return null;
-  }
-  return data.user;
-}
-
-export async function signOut() {
-  const { error } = await supabase.auth.signOut();
-  if (error) console.error('Sign-out failed:', error);
-}
-
-export async function storeHistory(prompt, response) {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return;
-
-  const { error } = await supabase.from('history').insert({
-    user_id: user.id,
-    prompt,
-    response
-  });
-  if (error) console.error('Error storing history:', error);
-}
-
-export async function fetchUserHistory() {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return [];
-
-  const { data, error } = await supabase
-    .from('history')
-    .select('*')
-    .eq('user_id', user.id)
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('Error fetching history:', error);
-    return [];
-  }
-  return data;
-}
+export { signInWithGoogle, getUserProfile, signOutUser, storeHistory, fetchUserHistory };
 
 // === Supabase Users ===
 // No need to manually create a "users" table.

@@ -1,29 +1,27 @@
 {
     "manifest_version": 3,
-    "name": "AI Assistant",
+    "name": "Assist",
     "version": "1.0",
-    "description": "An AI-powered assistant that helps with web automation and tasks",
+    "description": "AI-powered assistant for Chrome",
     "permissions": [
       "activeTab",
       "storage",
-      "scripting",
-      "identity"
+      "scripting"
     ],
     "host_permissions": [
-      "https://*.openai.com/*"
+      "https://*/*"
     ],
     "action": {
       "default_popup": "popup.html"
     },
     "background": {
-      "service_worker": "background.js",
-      "type": "module"
+      "service_worker": "background.js"
     },
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["content.js"],
-        "css": ["content.css"]
+        "css": ["content.css"],
+        "js": ["content.js"]
       }
     ]
   }

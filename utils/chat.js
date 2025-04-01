@@ -1,4 +1,4 @@
-import { db } from '../src/firebase';
+import { getFirestore } from 'firebase/firestore';
 import { 
   collection, 
   addDoc, 
@@ -11,6 +11,10 @@ import {
   getDoc,
   serverTimestamp
 } from 'firebase/firestore';
+import { app } from '../config';
+
+// Initialize Firestore with the app instance
+const db = getFirestore(app);
 
 export class ChatService {
   constructor() {
